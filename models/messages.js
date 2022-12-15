@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+
 const path = require('node:path');
 const { parse, serialize } = require('../utils/json');
 
@@ -7,7 +7,6 @@ const jsonDbPath = path.join(__dirname, '/../data/message.json');
 
 function list(userId){
     const message = parse(jsonDbPath);
-    // eslint-disable-next-line no-return-assign
     const messages = message.filter((m)=> m.user_id === userId);
     return messages;
 }

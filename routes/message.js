@@ -1,17 +1,16 @@
-/* eslint-disable */
+/* eslint-disable camelcase */
+
 const express = require('express');
 
 const router = express.Router();
 
 const Message = require('../models/messages')
 
-router.get('/', (req, res) => {
-    return res.json({ message: Message.list(req.session.user_id)})
-});
+router.get('/', (req, res) => res.json({ message: Message.list(req.session.user_id)}));
 
 
 router.post('/addMessageUser', (req, res) => {
-    const user_id = req.session.user_id;
+    const {user_id} = req.session;
     const content = req?.body?.content?.length !== 0 ? req.body.content : undefined;
     const type =req?.body?.type?.length !== 0 ? req.body.type : undefined;
     if(!content || !type) return res.sendStatus(400);
@@ -31,9 +30,7 @@ router.post('/addMessageVisitor', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    console.log(req.session.user_id)
     const idMessage = req?.params?.id
-    console.log(req?.params?.id)
     const message = Message.deleteOnemessage(idMessage,req.session.user_id);
     if(!message) return res.sendStatus(401);
     return res.json(message);

@@ -130,7 +130,14 @@ return   users[indexOfUserFound];
 function getMorePoints(){
   const users = parse(jsonDbPath, defaultUsers);
   const ranking = users.sort(mycomparator);
- return ranking;
+  const tab =[];
+  for(let i=0 ;i < ranking.length ; i+=1){
+    Array.prototype.push.call(tab, {
+      login:ranking[i].username,
+      point:ranking[i].nbePoint,
+    })
+  }
+ return tab;
 }
 
 function mycomparator(a,b) {

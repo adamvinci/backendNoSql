@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/f5a4282b-6595-4f95-a6a4-41721237db63/AppServices/subscriptions/f5a4282b-6595-4f95-a6a4-41721237db63/resourceGroups/RedDevils_group/providers/Microsoft.Web/sites/redddd",
+    "appService.deploySubpath": "."
+}
